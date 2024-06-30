@@ -1,6 +1,7 @@
 using CosmicApp.Core.Models;
 using CosmicApp.Core.Services;
 using Microsoft.Extensions.Options;
+using CosmicApp.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,8 @@ builder.Services.AddHttpClient("ApodService", (options, client) =>
 });
 
 builder.Services.AddTransient<IApodService, ApodService>();
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

@@ -1,15 +1,20 @@
 ﻿using CosmicApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace CosmicApp.Infrastructure.Persistance
 {
     internal class ApodDbContext : DbContext
     {
+        public ApodDbContext(DbContextOptions<ApodDbContext> options) : base(options)
+        {
+        }
+
         internal DbSet<Apod> Apods { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CosmicDb;Trusted_Connection=True;");
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
