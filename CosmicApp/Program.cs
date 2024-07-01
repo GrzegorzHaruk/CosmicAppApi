@@ -1,6 +1,11 @@
-using CosmicApp.Core.Models;
-using CosmicApp.Core.Services;
+using CosmicApp.Application.Interfaces;
+using CosmicApp.Application.Models;
+using CosmicApp.Application.Services.Apods;
+using CosmicApp.Infrastructure.Extensions;
 using Microsoft.Extensions.Options;
+using CosmicApp.Application.Extensions;
+
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +34,10 @@ builder.Services.AddHttpClient("ApodService", (options, client) =>
     client.BaseAddress = new Uri($"https://api.nasa.gov/planetary/apod?api_key={apiKey.NasaApiKey}&");
 });
 
-builder.Services.AddTransient<IApodService, ApodService>();
+builder.Services.AddScoped<IApodService, ApodService>();
+
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
