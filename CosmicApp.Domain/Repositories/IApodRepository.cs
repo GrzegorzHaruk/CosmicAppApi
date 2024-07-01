@@ -5,6 +5,9 @@ namespace CosmicApp.Domain.Repositories
     public interface IApodRepository
     {
         Task<IEnumerable<Apod>> GetAllAsync();
+
         Task<Apod?> GetById(int id);
+
+        Task<int> Create(Apod apod);
     }
 }

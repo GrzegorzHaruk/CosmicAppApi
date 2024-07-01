@@ -1,8 +1,7 @@
 ﻿using CosmicApp.Application.Interfaces;
-using CosmicApp.Domain.Entities;
+using CosmicApp.Application.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.WebSockets;
 
 namespace CosmicApp.Api.Controllers
 {
@@ -44,6 +43,14 @@ namespace CosmicApp.Api.Controllers
             }
 
             return Ok(apod);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateApod([FromBody] ApodDto apodDto)
+        {
+            int id = await _apodService.CreateApodAsync(apodDto);
+
+            return CreatedAtAction(nameof(GetApodById), new {id}, null);
         }
     }
 }

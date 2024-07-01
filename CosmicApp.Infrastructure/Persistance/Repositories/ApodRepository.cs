@@ -25,5 +25,12 @@ namespace CosmicApp.Infrastructure.Persistance.Repositories
             var result = await _apodDbContext.Apods.SingleOrDefaultAsync(x=>x.Id == id);
             return result;
         }
+
+        public async Task<int> Create(Apod apod)
+        {
+            _apodDbContext.Apods.Add(apod);
+            await _apodDbContext.SaveChangesAsync();
+            return apod.Id;
+        }
     }
 }

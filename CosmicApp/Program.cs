@@ -34,7 +34,6 @@ builder.Services.AddHttpClient("ApodService", (options, client) =>
     client.BaseAddress = new Uri($"https://api.nasa.gov/planetary/apod?api_key={apiKey.NasaApiKey}&");
 });
 
-builder.Services.AddScoped<IApodService, ApodService>();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();

@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+﻿using CosmicApp.Application.Interfaces;
+using CosmicApp.Application.Services.Apods;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CosmicApp.Application.Extensions
 {
@@ -7,7 +8,9 @@ namespace CosmicApp.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IApodService, ApodService>();
+            //services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
         }
     }
 }
