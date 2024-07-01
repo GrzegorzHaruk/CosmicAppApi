@@ -9,5 +9,7 @@ namespace CosmicApp.Application.Interfaces
         Task<ApodDto> GetNasaApodAsync(DateTime requestDate);
 
         Task<ApodDto?> GetByIdAsync(int id);
+
+        Task<int> CreateApodAsync(ApodDto apodDto);
     }
 }
