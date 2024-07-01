@@ -1,4 +1,6 @@
-﻿using CosmicApp.Infrastructure.Persistance;
+﻿using CosmicApp.Domain.Repositories;
+using CosmicApp.Infrastructure.Persistance;
+using CosmicApp.Infrastructure.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,8 @@ namespace CosmicApp.Infrastructure.Extensions
         {
             var connectionString = configuration.GetConnectionString("Default");
             services.AddDbContext<ApodDbContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddScoped<IApodRepository, ApodRepository>();
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using CosmicApp.Core.Models;
+using CosmicApp.Domain.Entities;
 
 namespace CosmicApp.Core.Services
 {
     public interface IApodService
     {
-        Task<Apod> GetApodAsunc(DateTime requestDate);
+        Task<Apod> GetApodAsync(DateTime requestDate);
     }
 }

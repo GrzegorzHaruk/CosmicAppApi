@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Api", "CosmicApp\CosmicApp.Api.csproj", "{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Core", "CosmicApp.Core\CosmicApp.Core.csproj", "{FC196F86-8825-432F-9516-B79D29A60354}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicApp.Domain", "CosmicApp.Domain\CosmicApp.Domain.csproj", "{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicApp.Infrastructure", "CosmicApp.Infrastructure\CosmicApp.Infrastructure.csproj", "{5202DC9E-4550-4B54-8BD1-53FA755CC783}"
@@ -23,10 +21,6 @@ Global
 		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC196F86-8825-432F-9516-B79D29A60354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC196F86-8825-432F-9516-B79D29A60354}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC196F86-8825-432F-9516-B79D29A60354}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC196F86-8825-432F-9516-B79D29A60354}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Release|Any CPU.ActiveCfg = Release|Any CPU

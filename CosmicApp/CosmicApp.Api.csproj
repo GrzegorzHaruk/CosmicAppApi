@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CosmicApp.Core\CosmicApp.Core.csproj" />
+    <ProjectReference Include="..\CosmicApp.Application\CosmicApp.Application.csproj" />
     <ProjectReference Include="..\CosmicApp.Infrastructure\CosmicApp.Infrastructure.csproj" />
   </ItemGroup>
 
