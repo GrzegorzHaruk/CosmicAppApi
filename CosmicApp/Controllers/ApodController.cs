@@ -1,12 +1,14 @@
 ﻿using CosmicApp.Application.Interfaces;
 using CosmicApp.Application.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
+using CosmicApp.Infrastructure.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CosmicApp.Api.Controllers
 {
     [ApiController]
     [Route("api/apods")]
+    [Authorize]
     public class ApodController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -26,6 +28,9 @@ namespace CosmicApp.Api.Controllers
         }
 
         [HttpGet("all")]
+        //[Authorize(Roles = UserRoles.Owner)]
+        //[Authorize(Policy = PolicyNames.HasNationality)]
+        [Authorize(Policy = PolicyNames.AtLeast20)]
         public async Task<IActionResult> GetAllApods()
         {
             var result = await _apodService.GetAllApodsAsync();

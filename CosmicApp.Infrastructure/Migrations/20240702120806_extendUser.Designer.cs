@@ -4,6 +4,7 @@ using CosmicApp.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CosmicApp.Infrastructure.Migrations
 {
     [DbContext(typeof(ApodDbContext))]
-    partial class ApodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240702120806_extendUser")]
+    partial class extendUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +59,7 @@ namespace CosmicApp.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Apods", (string)null);
+                    b.ToTable("Apods");
                 });
 
             modelBuilder.Entity("CosmicApp.Domain.Entities.User", b =>

@@ -18,5 +18,8 @@ namespace CosmicApp.Domain.Entities
 
         [JsonPropertyName("media_type")]
         public string? MediaType { get; set; }
+
+        //public User Owner { get; set; } = default!;
+        //public string OwnerId { get; set; } = default!;
     }
 }
