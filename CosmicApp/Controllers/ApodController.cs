@@ -8,7 +8,7 @@ namespace CosmicApp.Api.Controllers
 {
     [ApiController]
     [Route("api/apods")]
-    [Authorize]
+    //[Authorize]
     public class ApodController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -29,8 +29,6 @@ namespace CosmicApp.Api.Controllers
 
         [HttpGet("all")]
         //[Authorize(Roles = UserRoles.Owner)]
-        //[Authorize(Policy = PolicyNames.HasNationality)]
-        [Authorize(Policy = PolicyNames.AtLeast20)]
         public async Task<IActionResult> GetAllApods()
         {
             var result = await _apodService.GetAllApodsAsync();
@@ -55,7 +53,7 @@ namespace CosmicApp.Api.Controllers
         {
             int id = await _apodService.CreateApodAsync(apodDto);
 
-            return CreatedAtAction(nameof(GetApodById), new {id}, null);
+            return CreatedAtAction(nameof(GetApodById), new { id }, null);
         }
     }
 }

@@ -28,6 +28,10 @@ namespace CosmicApp.Infrastructure.Configurations
                 .Property(x => x.MediaType)
                 .IsRequired()
                 .HasMaxLength(20);
+
+            builder
+                .Property(x=>x.Url)
+                .IsRequired();
         }
     }
 }
