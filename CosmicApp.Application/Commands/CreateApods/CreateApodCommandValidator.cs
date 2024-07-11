@@ -1,11 +1,11 @@
 ﻿using CosmicApp.Application.Models;
 using FluentValidation;
 
-namespace CosmicApp.Application.Validators
+namespace CosmicApp.Application.Commands.CreateApods
 {
-    public class CreateApodDtoValidator : AbstractValidator<ApodDto>
+    public class CreateApodCommandValidator : AbstractValidator<CreateApodCommand>
     {
-        public CreateApodDtoValidator()
+        public CreateApodCommandValidator()
         {
             RuleFor(x => x.Url)
                 .NotEmpty()

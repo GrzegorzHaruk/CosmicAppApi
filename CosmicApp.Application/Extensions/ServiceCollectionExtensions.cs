@@ -17,6 +17,7 @@ namespace CosmicApp.Application.Extensions
             services.AddAutoMapper(assembly);
             services.AddScoped<IUserContext, UserContext>();
             services.AddValidatorsFromAssembly(assembly).AddFluentValidationAutoValidation();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
         }
     }
 }
