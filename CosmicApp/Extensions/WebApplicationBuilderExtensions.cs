@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
+
 namespace CosmicApp.Api.Extensions
 {
     public static class WebApplicationBuilderExtensions
@@ -36,7 +37,7 @@ namespace CosmicApp.Api.Extensions
             });
 
             builder.Services.AddEndpointsApiExplorer();
-
+            builder.Services.AddAutoMapper(typeof(WebApplicationBuilderExtensions).Assembly);
         }
     }
 }

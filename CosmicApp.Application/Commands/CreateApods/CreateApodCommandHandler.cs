@@ -1,6 +1,5 @@
-﻿using AutoMapper;
-using CosmicApp.Domain.Entities;
-using CosmicApp.Domain.Repositories;
+﻿using CosmicApp.Application.Interfaces;
+using CosmicApp.Application.Models;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -9,24 +8,30 @@ namespace CosmicApp.Application.Commands.CreateApods
     public class CreateApodCommandHandler : IRequestHandler<CreateApodCommand, int>
     {
         private readonly ILogger<CreateApodCommandHandler> _logger;
-        private readonly IMapper _mapper;
-        private readonly IApodRepository _apodRepository;
+        private readonly IApodService _apodService;
 
-        public CreateApodCommandHandler(ILogger<CreateApodCommandHandler> logger, 
-            IMapper mapper, IApodRepository apodRepository)
+        public CreateApodCommandHandler(ILogger<CreateApodCommandHandler> logger, IApodService apodService)
         {
-            _logger = logger;
-            _mapper = mapper;
-            _apodRepository = apodRepository;
+            _logger = logger;            
+            _apodService = apodService;
         }
 
         public async Task<int> Handle(CreateApodCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Creating new APOD");
 
-            var apod = _mapper.Map<Apod>(request);
+            var apodDto = new ApodDto
+            {
+                Date = request.Date,
+                Explanation = request.Explanation,
+                Url = request.Url,
+                Hdurl = request.Hdurl,
+                Title = request.Title,
+                MediaType = request.MediaType,
+            };
 
-            int id = await _apodRepository.Create(apod);
+            var id = await _apodService.CreateApodAsync(apodDto);
+            
             return id;
         }
     }
