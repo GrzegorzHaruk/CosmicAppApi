@@ -4,14 +4,15 @@ using CosmicApp.Application.Models;
 using CosmicApp.Application.Queries.GetAllApods;
 using CosmicApp.Application.Queries.GetApodById;
 using CosmicApp.Application.Queries.GetNasaApodByDate;
+using CosmicApp.Domain.Constants;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CosmicApp.Api.Controllers
 {
     [ApiController]
-    [Route("api/apods")]
-    //[Authorize]
+    [Route("api/apods")]    
     public class ApodController : ControllerBase
     {        
         private readonly IMediator _mediator;
@@ -32,7 +33,7 @@ namespace CosmicApp.Api.Controllers
         }
 
         [HttpGet]
-        [Route("id")]
+        [Route("id")]        
         public async Task<IActionResult> GetApodByIdAsync(int id)
         {
             var apod = await _mediator.Send(new GetApodByIdQuery() { Id = id });
