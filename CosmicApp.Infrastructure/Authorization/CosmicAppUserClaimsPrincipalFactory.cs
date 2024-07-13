@@ -25,7 +25,7 @@ namespace CosmicApp.Infrastructure.Authorization
 
             if(user.DateOfBirth != null)
             {
-                id.AddClaim(new Claim("DateOfBirth", user.DateOfBirth.Value.ToString("yyyy-MM-dd")));
+                id.AddClaim(new Claim(AppClaimTypes.DateOfBirth, user.DateOfBirth.Value.ToString("yyyy-MM-dd")));
             }
 
             return new ClaimsPrincipal(id);

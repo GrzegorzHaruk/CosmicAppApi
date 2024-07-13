@@ -1,61 +1,58 @@
-﻿using CosmicApp.Application.Interfaces;
+﻿using AutoMapper;
+using CosmicApp.Application.Commands.CreateApods;
 using CosmicApp.Application.Models;
-using CosmicApp.Infrastructure.Authorization;
+using CosmicApp.Application.Queries.GetAllApods;
+using CosmicApp.Application.Queries.GetApodById;
+using CosmicApp.Application.Queries.GetNasaApodByDate;
+using CosmicApp.Domain.Constants;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CosmicApp.Api.Controllers
 {
     [ApiController]
-    [Route("api/apods")]
-    [Authorize]
+    [Route("api/apods")]    
     public class ApodController : ControllerBase
-    {
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IApodService _apodService;
+    {        
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public ApodController(IHttpClientFactory httpClientFactory, IApodService apodService)
+        public ApodController(IMediator mediator, IMapper mapper)
         {
-            _httpClientFactory = httpClientFactory;
-            _apodService = apodService;
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        [HttpGet("apod")]
-        public async Task<IActionResult> GetApodAsync(DateTime date)
+        [HttpGet]
+        [Route("date")]
+        public async Task<IActionResult> GetNasaApodAsync(DateTime date)
         {
-            var apod = await _apodService.GetNasaApodAsync(date);
+            var apod = await _mediator.Send(new GetNasaApodByDateQuery { Date = date });
             return Ok(apod);
         }
 
-        [HttpGet("all")]
-        //[Authorize(Roles = UserRoles.Owner)]
-        //[Authorize(Policy = PolicyNames.HasNationality)]
-        [Authorize(Policy = PolicyNames.AtLeast20)]
+        [HttpGet]
+        [Route("id")]        
+        public async Task<IActionResult> GetApodByIdAsync(int id)
+        {
+            var apod = await _mediator.Send(new GetApodByIdQuery() { Id = id });
+            return Ok(apod);
+        }
+
+        [HttpGet("all")]        
         public async Task<IActionResult> GetAllApods()
         {
-            var result = await _apodService.GetAllApodsAsync();
+            var result = await _mediator.Send(new GetAllApodsQuery());
             return Ok(result);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetApodById([FromRoute] int id)
-        {
-            var apod = await _apodService.GetByIdAsync(id);
-
-            if (apod == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(apod);
-        }
+        }        
 
         [HttpPost]
         public async Task<IActionResult> CreateApod([FromBody] ApodDto apodDto)
         {
-            int id = await _apodService.CreateApodAsync(apodDto);
-
-            return CreatedAtAction(nameof(GetApodById), new {id}, null);
+            int id = await _mediator.Send(_mapper.Map<CreateApodCommand>(apodDto));
+            
+            return Ok(id);
         }
     }
 }

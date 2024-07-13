@@ -1,6 +1,8 @@
-﻿namespace CosmicApp.Application.Models
+﻿using MediatR;
+
+namespace CosmicApp.Application.Commands.CreateApods
 {
-    public class ApodDto
+    public class CreateApodCommand : IRequest<int>
     {
         public string? Date { get; set; }
 
