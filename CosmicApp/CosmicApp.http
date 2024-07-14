@@ -1,6 +1,30 @@
 @CosmicApp_HostAddress = http://localhost:5295
 
-GET {{CosmicApp_HostAddress}}/weatherforecast/
-Accept: application/json
+@host = https://localhost
+@port = 5295
+@token = CfDJ8CIU6P896SBKkV7YSXQ6zkJAf4iC2xjd74j175EPnkyMm8Ey1QtEi51d5444Bn6sBpr_JMkyUQtf8qTu9zIj_w8vpo4BydTokYyTBSarWERG-zGFj9ysB4DzDshU1QFgJydGj9sv3HfycIcCaS8aFiw7mMBY5JkH4Iz_1Qfj4XGYAZHTDR3mHttMOVoXxwRUbptj2ka_Wea2Bt23aFxehg0L4yJERdYp28dKrc84feHos_j_xjdeSXP-Hz27oh51r4CLsjBWPphjL4tc1VoUE9TqLtgNuJiS0lEyMi3OXy8x-I9t7EuAMDiN4emYNmzrB6a8Iqvo8SQESUXKvdqcdAoeW52PNktFnkN4ZXpZ9a4o5oMjuJW9rvO494BVUQs8Eqbt46mV1PW1sm3ySzOSwEwWpj36Nnvn-kt6RFV80ud0rStSGqlHf9Slpv3_ndZyzRuXnQSKykfrQQ06AzAjPlXmgEOvjBZhnqAPDKZyBbTSaMIm4OftcniWCJd_KMFOYU8Ayjoz1LPYFEKuAdio9UYJZ-6c7DAM9GL7aNyonFCodv1D-w4Sn9x6Ja657dUGkSDPH8HIQD1pil_z4RVH5039U4GcZqBCkRHOKwJIwnk2J9If7o6lfC0PAYOfWPCeQgh1u_rbdICgjzHCRwejcuJCf0UyIAIB3ONhRLAxQqEJH3sIB2toQXiM9lFlBIel_A
+
+
+
+GET {{CosmicApp_HostAddress}}/api/apods/all
+Authorization: Bearer {{token}}}
 
 ###
+
+POST {{CosmicApp_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email" : "user@test.com",
+  "password" : "Password1!"
+}
+
+###
+
+POST {{CosmicApp_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email" : "owner@test.com",
+  "password" : "Password1!"
+}
