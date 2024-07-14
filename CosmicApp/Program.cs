@@ -27,6 +27,10 @@ builder.Services.AddApplication();
 
 var app = builder.Build();
 
+var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetRequiredService<IDataSeeder>();
+await seeder.Seed();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -38,10 +42,6 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseCors(options => options.WithOrigins().AllowAnyOrigin());
-
-var scope = app.Services.CreateScope();
-var seeder = scope.ServiceProvider.GetRequiredService<IDataSeeder>();
-await seeder.Seed();
 
 app.UseHttpsRedirection();
 
