@@ -54,7 +54,7 @@ namespace CosmicApp.Application.Services.Apods
         public async Task<ApodDto?> GetByIdAsync(int id)
         {
             _logger.LogInformation("Getting Astronomy Picture od the Day (APOD) from the database by id");
-            var apod = await _apodRepository.GetById(id);
+            var apod = await _apodRepository.GetByIdAsync(id);
 
             var apodDto = _mapper.Map<ApodDto>(apod);
 
@@ -67,7 +67,7 @@ namespace CosmicApp.Application.Services.Apods
 
             var apod = _mapper.Map<Apod>(apodDto);
 
-            var id = await _apodRepository.Create(apod);
+            var id = await _apodRepository.CreateAsync(apod);
 
             return id;
         }

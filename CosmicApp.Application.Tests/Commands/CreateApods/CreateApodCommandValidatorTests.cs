@@ -19,7 +19,6 @@ namespace CosmicApp.Application.Tests.Commands.CreateApods
             // act 
 
             var result = validator.TestValidate(command);
-            var result2 = validator.Validate(command);
 
             // assert
 
