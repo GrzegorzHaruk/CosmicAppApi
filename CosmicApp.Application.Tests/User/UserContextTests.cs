@@ -38,7 +38,7 @@ namespace CosmicApp.Application.Tests.User
             // assert
 
             result.Should().NotBeNull();
-            result!.Id.Should().Be("1");
+            result!.Id.Should().Be("2");
             result.Email.Should().Be("test@test.com");
             result.Roles.Should().ContainInOrder(UserRoles.Admin, UserRoles.User);
             result.Nationality.Should().Be("Martian");
