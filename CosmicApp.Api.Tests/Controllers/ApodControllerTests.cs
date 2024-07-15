@@ -1,5 +1,6 @@
 ﻿using CosmicApp.Domain.Entities;
 using CosmicApp.Domain.Repositories;
+using CosmicApp.Infrastructure.Seeder;
 using FluentAssertions;
 using Microsoft.AspNetCore.Authorization.Policy;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -15,6 +16,7 @@ namespace CosmicApp.Api.Tests.Controllers
     {
         private readonly WebApplicationFactory<Program> _factory;
         private readonly Mock<IApodRepository> _apodRepositoryMock = new();
+        private readonly Mock<IDataSeeder> _seederMock = new();
 
         public ApodControllerTests(WebApplicationFactory<Program> factory)
         {
@@ -24,6 +26,8 @@ namespace CosmicApp.Api.Tests.Controllers
                 {
                     services.AddSingleton<IPolicyEvaluator, FakePolicyEvaluator>();
                     services.Replace(ServiceDescriptor.Scoped(typeof(IApodRepository), _ => _apodRepositoryMock.Object));
+
+                    services.Replace(ServiceDescriptor.Scoped(typeof(IDataSeeder), _ => _seederMock.Object));
                 });
             });
         }
