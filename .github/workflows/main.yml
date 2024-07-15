@@ -1,8 +1,6 @@
-name: cosmic-app-api
+name: cosmic-app-api-ci
 
-on: 
-  push:
-    branches: [ main ]
+on:
   pull_request:
     branches:
     - main
