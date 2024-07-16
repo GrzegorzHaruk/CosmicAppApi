@@ -1,4 +1,4 @@
-name: cosmic-app-api-ci
+name: cosmic-app-api-ci 
 
 on:
   pull_request:
