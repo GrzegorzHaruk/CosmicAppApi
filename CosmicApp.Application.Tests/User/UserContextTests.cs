@@ -18,7 +18,7 @@ namespace CosmicApp.Application.Tests.User
             var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
             var claims = new List<Claim>
             {
-                new(ClaimTypes.NameIdentifier, "1"),
+                new(ClaimTypes.NameIdentifier, "2"),
                 new(ClaimTypes.Email, "test@test.com"),
                 new(ClaimTypes.Role, UserRoles.Admin),
                 new(ClaimTypes.Role, UserRoles.User),
