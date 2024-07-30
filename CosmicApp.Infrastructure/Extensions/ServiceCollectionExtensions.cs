@@ -11,7 +11,7 @@ namespace CosmicApp.Infrastructure.Extensions
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("Default");
+            var connectionString = configuration.GetConnectionString("CosmicDb");
             services.AddDbContext<ApodDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddScoped<IApodRepository, ApodRepository>();

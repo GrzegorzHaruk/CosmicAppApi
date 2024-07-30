@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CosmicApp.Infrastructure.Migrations
 {
     [DbContext(typeof(ApodDbContext))]
-    [Migration("20240630140430_init")]
+    [Migration("20240725171025_init")]
     partial class init
     {
         /// <inheritdoc />

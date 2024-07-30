@@ -8,8 +8,7 @@ namespace CosmicApp.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IApodService, ApodService>();
-            //services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IApodService, ApodService>();            
             services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
         }
     }
