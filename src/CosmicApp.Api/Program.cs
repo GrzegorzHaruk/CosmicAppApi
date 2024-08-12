@@ -1,6 +1,11 @@
-using CosmicApp.Core.Models;
-using CosmicApp.Core.Services;
+using CosmicApp.Application.Interfaces;
+using CosmicApp.Application.Models;
+using CosmicApp.Application.Services.Apods;
+using CosmicApp.Infrastructure.Extensions;
 using Microsoft.Extensions.Options;
+using CosmicApp.Application.Extensions;
+
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setup =>
@@ -29,7 +35,9 @@ builder.Services.AddHttpClient("ApodService", (options, client) =>
     client.BaseAddress = new Uri($"https://api.nasa.gov/planetary/apod?api_key={apiKey.NasaApiKey}&");
 });
 
-builder.Services.AddTransient<IApodService, ApodService>();
+
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
@@ -47,7 +55,7 @@ app.UseCors(options => options.WithOrigins().AllowAnyOrigin());
 
 app.UseHttpsRedirection();
 
-//app.UseAuthorization();
+app.UseAuthorization();
 
 app.MapControllers();
 

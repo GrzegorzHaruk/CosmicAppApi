@@ -1,4 +1,4 @@
-﻿namespace CosmicApp.Core.Models
+﻿namespace CosmicApp.Application.Models
 {
     public class NasaApiOptions
     {
