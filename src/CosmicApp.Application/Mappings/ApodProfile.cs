@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CosmicApp.Application.Commands.CreateApods;
 using CosmicApp.Application.Models;
 using CosmicApp.Domain.Entities;
 
@@ -9,6 +10,8 @@ namespace CosmicApp.Application.Mappings
         public ApodProfile()
         {
             CreateMap<Apod, ApodDto>().ReverseMap();
+
+            CreateMap<CreateApodCommand, ApodDto>();
         }
     }
 }

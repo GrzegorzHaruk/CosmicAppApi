@@ -6,8 +6,8 @@ namespace CosmicApp.Domain.Repositories
     {
         Task<IEnumerable<Apod>> GetAllAsync();
 
-        Task<Apod?> GetById(int id);
+        Task<Apod?> GetByIdAsync(int id);
 
-        Task<int> Create(Apod apod);
+        Task<int> CreateAsync(Apod apod);
     }
 }

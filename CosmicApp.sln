@@ -5,6 +5,7 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D7361083-8FDC-400B-BC47-67208DAA9AB0}"
 EndProject
+<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Api", "src\CosmicApp.Api\CosmicApp.Api.csproj", "{DB8436D6-9A64-479E-9CA9-7D9F691F2309}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Application", "src\CosmicApp.Application\CosmicApp.Application.csproj", "{C81B9150-E974-4335-9AB1-5A74C0D6C561}"
@@ -12,6 +13,21 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Domain", "src\CosmicApp.Domain\CosmicApp.Domain.csproj", "{94CAAE40-F957-4EA3-8696-FA90616F4534}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Infrastructure", "src\CosmicApp.Infrastructure\CosmicApp.Infrastructure.csproj", "{85AC4CC3-6341-432A-A4BB-21DB23822E0E}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Domain", "CosmicApp.Domain\CosmicApp.Domain.csproj", "{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Infrastructure", "CosmicApp.Infrastructure\CosmicApp.Infrastructure.csproj", "{5202DC9E-4550-4B54-8BD1-53FA755CC783}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Application", "CosmicApp.Application\CosmicApp.Application.csproj", "{EA832543-527F-4ED7-8F69-F445A6D0D09D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1765CA4E-A3C6-41A1-AAE1-A12475BF017C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{82E1EBA5-6468-4BE0-AA75-6580BE586FFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicApp.Application.Tests", "CosmicApp.Application.Tests\CosmicApp.Application.Tests.csproj", "{D2D55770-2294-4397-911A-B78FFCE3BFB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicApp.Api.Tests", "CosmicApp.Api.Tests\CosmicApp.Api.Tests.csproj", "{3E0B6E3A-DD9D-4436-A46F-7D45C5306824}"
+>>>>>>> development
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +35,7 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
 		{DB8436D6-9A64-479E-9CA9-7D9F691F2309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB8436D6-9A64-479E-9CA9-7D9F691F2309}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB8436D6-9A64-479E-9CA9-7D9F691F2309}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,15 +52,50 @@ Global
 		{85AC4CC3-6341-432A-A4BB-21DB23822E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85AC4CC3-6341-432A-A4BB-21DB23822E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85AC4CC3-6341-432A-A4BB-21DB23822E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5202DC9E-4550-4B54-8BD1-53FA755CC783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5202DC9E-4550-4B54-8BD1-53FA755CC783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5202DC9E-4550-4B54-8BD1-53FA755CC783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5202DC9E-4550-4B54-8BD1-53FA755CC783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA832543-527F-4ED7-8F69-F445A6D0D09D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA832543-527F-4ED7-8F69-F445A6D0D09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA832543-527F-4ED7-8F69-F445A6D0D09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA832543-527F-4ED7-8F69-F445A6D0D09D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2D55770-2294-4397-911A-B78FFCE3BFB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2D55770-2294-4397-911A-B78FFCE3BFB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2D55770-2294-4397-911A-B78FFCE3BFB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2D55770-2294-4397-911A-B78FFCE3BFB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0B6E3A-DD9D-4436-A46F-7D45C5306824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0B6E3A-DD9D-4436-A46F-7D45C5306824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0B6E3A-DD9D-4436-A46F-7D45C5306824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0B6E3A-DD9D-4436-A46F-7D45C5306824}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+<<<<<<< HEAD
 		{DB8436D6-9A64-479E-9CA9-7D9F691F2309} = {D7361083-8FDC-400B-BC47-67208DAA9AB0}
 		{C81B9150-E974-4335-9AB1-5A74C0D6C561} = {D7361083-8FDC-400B-BC47-67208DAA9AB0}
 		{94CAAE40-F957-4EA3-8696-FA90616F4534} = {D7361083-8FDC-400B-BC47-67208DAA9AB0}
 		{85AC4CC3-6341-432A-A4BB-21DB23822E0E} = {D7361083-8FDC-400B-BC47-67208DAA9AB0}
+=======
+		{DAB4F44E-CCF8-4C4B-93D3-64CFF6D42F20} = {82E1EBA5-6468-4BE0-AA75-6580BE586FFC}
+		{67DBFDE7-EBBD-49C7-B3DA-E5F779DB4B42} = {82E1EBA5-6468-4BE0-AA75-6580BE586FFC}
+		{5202DC9E-4550-4B54-8BD1-53FA755CC783} = {82E1EBA5-6468-4BE0-AA75-6580BE586FFC}
+		{EA832543-527F-4ED7-8F69-F445A6D0D09D} = {82E1EBA5-6468-4BE0-AA75-6580BE586FFC}
+		{D2D55770-2294-4397-911A-B78FFCE3BFB9} = {1765CA4E-A3C6-41A1-AAE1-A12475BF017C}
+		{3E0B6E3A-DD9D-4436-A46F-7D45C5306824} = {1765CA4E-A3C6-41A1-AAE1-A12475BF017C}
+>>>>>>> development
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68A04EA1-854B-4EBE-B471-1EB3A804EEF1}

@@ -16,17 +16,18 @@ namespace CosmicApp.Infrastructure.Persistance.Repositories
         public async Task<IEnumerable<Apod>> GetAllAsync()
         {
             var result = await _apodDbContext.Apods.ToListAsync();
-
+            
             return result;
         }
         
-        public async Task<Apod?> GetById(int id)
+        public async Task<Apod?> GetByIdAsync(int id)
         {
             var result = await _apodDbContext.Apods.SingleOrDefaultAsync(x=>x.Id == id);
+            
             return result;
         }
 
-        public async Task<int> Create(Apod apod)
+        public async Task<int> CreateAsync(Apod apod)
         {
             _apodDbContext.Apods.Add(apod);
             await _apodDbContext.SaveChangesAsync();

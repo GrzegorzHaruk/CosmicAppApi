@@ -10,7 +10,7 @@ namespace CosmicApp.Domain.Entities
 
         public string? Explanation { get; set; }
 
-        public string? Url { get; set; }
+        public string Url { get; set; } = default!;
 
         public string? Hdurl { get; set; }
 
@@ -18,5 +18,8 @@ namespace CosmicApp.Domain.Entities
 
         [JsonPropertyName("media_type")]
         public string? MediaType { get; set; }
+
+        //public User Owner { get; set; } = default!;
+        //public string OwnerId { get; set; } = default!;
     }
 }
