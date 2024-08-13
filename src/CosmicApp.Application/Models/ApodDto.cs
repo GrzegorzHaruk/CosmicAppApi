@@ -1,10 +1,8 @@
-﻿using CosmicApp.Domain.Entities;
-
-namespace CosmicApp.Application.Models
+﻿namespace CosmicApp.Application.Models
 {
     public class ApodDto
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
 
         public string? Date { get; set; }
 

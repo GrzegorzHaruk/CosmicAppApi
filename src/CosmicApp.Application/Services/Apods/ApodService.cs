@@ -43,7 +43,7 @@ namespace CosmicApp.Application.Services.Apods
 
         public async Task<IEnumerable<ApodDto>> GetAllApodsAsync()
         {
-            _logger.LogInformation("Getting all Astronomy Pictures od the Day (APOD) from the database");
+            _logger.LogInformation("Getting all Astronomy Pictures of the Day (APOD) from the database");
             var apods = await _apodRepository.GetAllAsync();
 
             var apodsDto = _mapper.Map<IEnumerable<ApodDto>>(apods);

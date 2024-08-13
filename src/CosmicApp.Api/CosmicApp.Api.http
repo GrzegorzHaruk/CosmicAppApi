@@ -1,0 +1,5 @@
+﻿@CosmicApp_HostAddress = https://localhost:7027
+
+GET {{CosmicApp_HostAddress}}/api/apods/all
+
+###
