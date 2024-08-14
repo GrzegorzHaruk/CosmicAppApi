@@ -14,6 +14,7 @@ namespace CosmicApp.Application.Extensions
             services.AddScoped<IApodService, ApodService>();            
             services.AddAutoMapper(appAssembly);
             services.AddValidatorsFromAssembly(appAssembly).AddFluentValidationAutoValidation();
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(appAssembly));
         }
     }
 }
