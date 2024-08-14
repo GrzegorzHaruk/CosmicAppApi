@@ -15,7 +15,7 @@ namespace CosmicApp.Application.Services.Apods
         private readonly ILogger _logger;
         private readonly IMapper _mapper;
 
-        public ApodService(IHttpClientFactory httpClientFactory, IApodRepository apodRepository, 
+        public ApodService(IHttpClientFactory httpClientFactory, IApodRepository apodRepository,
             ILogger<ApodService> logger, IMapper mapper)
         {
             _httpClientFactory = httpClientFactory;
@@ -47,7 +47,7 @@ namespace CosmicApp.Application.Services.Apods
             var apods = await _apodRepository.GetAllAsync();
 
             var apodsDto = _mapper.Map<IEnumerable<ApodDto>>(apods);
-            
+
             return apodsDto!;
         }
 
