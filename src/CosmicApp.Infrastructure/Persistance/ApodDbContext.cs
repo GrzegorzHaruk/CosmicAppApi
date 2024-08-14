@@ -1,10 +1,11 @@
 ﻿using CosmicApp.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace CosmicApp.Infrastructure.Persistance
 {
-    internal class ApodDbContext : DbContext
+    internal class ApodDbContext : IdentityDbContext<User>
     {
         public ApodDbContext(DbContextOptions<ApodDbContext> options) : base(options)
         {
@@ -19,6 +20,8 @@ namespace CosmicApp.Infrastructure.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }

@@ -3,13 +3,16 @@ using CosmicApp.Application.Models;
 using CosmicApp.Application.Queries.GetAllApods;
 using CosmicApp.Application.Queries.GetApodById;
 using CosmicApp.Application.Queries.GetNasaApod;
+using CosmicApp.Domain.Constants;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CosmicApp.Api.Controllers
 {
     [ApiController]
     [Route("api/apods")]
+    [Authorize]
     public class ApodController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -28,7 +31,7 @@ namespace CosmicApp.Api.Controllers
             return Ok(apod);
         }
 
-        [HttpGet("all")]
+        [HttpGet("all")]        
         public async Task<IActionResult> GetAllApods()
         {
             var result = await _mediator.Send(new GetAllApodsQuery());
@@ -49,6 +52,7 @@ namespace CosmicApp.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRoles.User)]
         public async Task<IActionResult> CreateApod([FromBody] ApodDto apodDto)
         {
             var id = await _mediator.Send(new CreateApodCommand(apodDto));
