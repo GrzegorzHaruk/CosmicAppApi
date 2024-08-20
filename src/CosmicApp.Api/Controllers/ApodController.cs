@@ -1,41 +1,47 @@
-﻿using CosmicApp.Application.Interfaces;
+﻿using CosmicApp.Application.Commands.CreateApod;
 using CosmicApp.Application.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
+using CosmicApp.Application.Queries.GetAllApods;
+using CosmicApp.Application.Queries.GetApodById;
+using CosmicApp.Application.Queries.GetNasaApod;
+using CosmicApp.Domain.Constants;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CosmicApp.Api.Controllers
 {
     [ApiController]
     [Route("api/apods")]
+    [Authorize]
     public class ApodController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IApodService _apodService;
+        private readonly IMediator _mediator;
 
-        public ApodController(IHttpClientFactory httpClientFactory, IApodService apodService)
+        public ApodController(IHttpClientFactory httpClientFactory, IMediator mediator)
         {
             _httpClientFactory = httpClientFactory;
-            _apodService = apodService;
+            _mediator = mediator;
         }
 
         [HttpGet("apod")]
         public async Task<IActionResult> GetApodAsync(DateTime date)
         {
-            var apod = await _apodService.GetNasaApodAsync(date);
+            var apod = await _mediator.Send(new GetNasaApodQuery(date));
             return Ok(apod);
         }
 
-        [HttpGet("all")]
+        [HttpGet("all")]        
         public async Task<IActionResult> GetAllApods()
         {
-            var result = await _apodService.GetAllApodsAsync();
+            var result = await _mediator.Send(new GetAllApodsQuery());
             return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetApodById([FromRoute] int id)
         {
-            var apod = await _apodService.GetByIdAsync(id);
+            var apod = await _mediator.Send(new GetApodByIdQuery(id));
 
             if (apod == null)
             {
@@ -46,11 +52,12 @@ namespace CosmicApp.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRoles.User)]
         public async Task<IActionResult> CreateApod([FromBody] ApodDto apodDto)
         {
-            int id = await _apodService.CreateApodAsync(apodDto);
+            var id = await _mediator.Send(new CreateApodCommand(apodDto));
 
-            return CreatedAtAction(nameof(GetApodById), new {id}, null);
+            return CreatedAtAction(nameof(GetApodById), new { id }, null);
         }
     }
 }
