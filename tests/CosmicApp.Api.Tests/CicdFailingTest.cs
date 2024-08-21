@@ -3,10 +3,10 @@ namespace CosmicApp.Api.Tests
     public class CicdFailingTest
     {
         [Test]
-        public void FailingTest()
+        public void FailingTestRepaired()
         {
             var expected = 10;
-            var result = 100;
+            var result = 10;
             
             Assert.That(result, Is.EqualTo(expected));
         }
