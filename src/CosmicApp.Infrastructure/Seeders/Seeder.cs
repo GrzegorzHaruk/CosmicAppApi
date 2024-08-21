@@ -1,6 +1,7 @@
 ﻿using CosmicApp.Domain.Constants;
 using CosmicApp.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace CosmicApp.Infrastructure.Seeders
 {
@@ -8,6 +9,11 @@ namespace CosmicApp.Infrastructure.Seeders
     {
         public async Task Seed()
         {
+            if (apodDbContext.Database.GetPendingMigrations().Any())
+            {
+                await apodDbContext.Database.MigrateAsync();
+            }
+
             if (await apodDbContext.Database.CanConnectAsync())
             {
                 if (!apodDbContext.Roles.Any())
