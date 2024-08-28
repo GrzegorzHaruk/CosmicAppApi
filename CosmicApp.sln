@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Infrastructure", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{16C4472E-6563-434F-B196-6B326C3E85C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicApp.Api.Tests", "tests\CosmicApp.Api.Tests\CosmicApp.Api.Tests.csproj", "{AF4C72BF-29C2-4E38-8013-5206F7F57EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmicApp.Api.Tests", "tests\CosmicApp.Api.Tests\CosmicApp.Api.Tests.csproj", "{AF4C72BF-29C2-4E38-8013-5206F7F57EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicApp.Application.Tests", "tests\CosmicApp.Application.Tests\CosmicApp.Application.Tests.csproj", "{D78E9D7E-EBF9-4748-A9F9-B0121EBBEA9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{AF4C72BF-29C2-4E38-8013-5206F7F57EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF4C72BF-29C2-4E38-8013-5206F7F57EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF4C72BF-29C2-4E38-8013-5206F7F57EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78E9D7E-EBF9-4748-A9F9-B0121EBBEA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78E9D7E-EBF9-4748-A9F9-B0121EBBEA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78E9D7E-EBF9-4748-A9F9-B0121EBBEA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78E9D7E-EBF9-4748-A9F9-B0121EBBEA9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{94CAAE40-F957-4EA3-8696-FA90616F4534} = {D7361083-8FDC-400B-BC47-67208DAA9AB0}
 		{85AC4CC3-6341-432A-A4BB-21DB23822E0E} = {D7361083-8FDC-400B-BC47-67208DAA9AB0}
 		{AF4C72BF-29C2-4E38-8013-5206F7F57EB8} = {16C4472E-6563-434F-B196-6B326C3E85C1}
+		{D78E9D7E-EBF9-4748-A9F9-B0121EBBEA9F} = {16C4472E-6563-434F-B196-6B326C3E85C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68A04EA1-854B-4EBE-B471-1EB3A804EEF1}

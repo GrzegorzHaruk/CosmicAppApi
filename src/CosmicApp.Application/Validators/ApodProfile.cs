@@ -9,9 +9,12 @@ namespace CosmicApp.Application.Validators
         {
             RuleFor(x => x.Title)
                 .NotEmpty()
-                .MaximumLength(20);
+                .MaximumLength(20)
+                .WithMessage("Too long");
             
-            RuleFor(x=>x.Url).NotEmpty();
+            RuleFor(x=>x.Url)
+                .NotEmpty()
+                .WithMessage("Can't be empty");
         }
     }
 }
